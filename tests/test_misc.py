@@ -11,6 +11,7 @@ import unittest
 
 from . import tomllib
 
+
 class TestMiscellaneous(unittest.TestCase):
     def test_load(self):
         content = "one=1 \n two='two' \n arr=[]"
@@ -101,9 +102,9 @@ class TestMiscellaneous(unittest.TestCase):
 
     def test_truncate_sub_seconds(self):
         for t in [
-            't = 2012-12-12T00:00:00.99999999999999Z',
-            't = 2012-12-12T00:00:00.99999999999999',
-            't = 00:00:00.99999999999999',
+            "t = 2012-12-12T00:00:00.99999999999999Z",
+            "t = 2012-12-12T00:00:00.99999999999999",
+            "t = 00:00:00.99999999999999",
         ]:
             obj = tomllib.loads(t)
             self.assertEqual(obj["t"].microsecond, 999999)

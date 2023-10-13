@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2021 Taneli Hukkinen
 # Licensed to PSF under a Contributor Agreement.
 
-"""Utilities for https://github.com/toml-lang/toml-test"""
+"""Utilities for https://github.com/toml-lang/toml-test."""
 
 import datetime
 from typing import Any
@@ -37,7 +37,7 @@ def convert(obj):  # noqa: C901
 
 def normalize(obj: Any) -> Any:
     """Normalize test objects; all values are strings, so make sure they're
-    compared consistently. """
+    compared consistently."""
     if isinstance(obj, list):
         return [normalize(item) for item in obj]
     elif isinstance(obj, dict) and "type" not in obj and "value" not in obj:
@@ -92,9 +92,12 @@ def _normalize_float_str(float_str: str) -> str:
 
     return str(as_float)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     import json
     import sys
+
     import tomli
+
     t = tomli.loads(sys.stdin.read())
     print(json.dumps(convert(t)))

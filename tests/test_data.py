@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import unittest
 
-from . import tomltest, tomllib
+from . import tomllib, tomltest
 
 
 class MissingFile:
